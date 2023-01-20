@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10, minimum-scale=1.0">
+	<title>Popup+Botão</title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+	<!-- Botão -->
+    <div id="cta1" class="mt-4" style="max-width: 800px; margin: auto;">
+      <a onclick="openForm()" class="a-btn" style="text-decoration: none;">
+        <span class="span-btn">QUERO COMPRAR AGORA!</span>
+        <span class="span-btn2">(Atenção: Vagas limitadas)</span>
+      </a>
+    </div>
+
+
+    <!--PopUp -->
+    <div class="form-popup" id="myForm" style="display: none;">
+      <form action="https://app.monetizze.com.br/checkout/BPK724492" class="form-container">
+        <h1>Vamos criar o seu Login...</h1>
+
+        <label for="name"><b>Digite seu Nome:</b></label>
+        <input type="text" placeholder="Nome" name="nome" required>
+
+        <label for="psw"><b>Digite seu E-mail:</b></label>
+        <input type="email" placeholder="Email" name="email" required>
+
+        <label for="psw"><b>Digite seu Telefone com DDD:</b></label>
+        <input type="tel" placeholder="Telefone" name="telefone" required>
+
+        <button type="submit" class="btn">Continuar</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Voltar</button>
+        <img src="assets/img/site-seguro.png">
+      </form>
+    </div>
+
+    <!-- Popup 2 -->
+    <div id="form" class="login-box" style="display: none;">
+		<h2>Preencha corretamente</h2>
+	  	<form action="">
+		    <div class="user-box">
+		      <input type="text" name="Nome" required>
+		      <label>Seu Nome:</label>
+		    </div>
+		    <div class="user-box">
+		      <input type="text" name="email" required>
+		      <label>Sua Email:</label>
+		    </div>
+		    <div class="user-box">
+		      <input type="tel" name="Telefone" pattern="[0-9]{11}" required>
+		      <!--<input type="number" name="Telefone" required>-->
+		      <label>Telefone com (DDD):</label>
+		    </div>
+		    <input type="hidden" name="Data de envio" value="x-sheetmonkey-current-date-time" />
+		    <button class="btn-ok" type="submit">
+		      <span></span>
+		      <span></span>
+		      <span></span>
+		      <span></span>
+		      Continuar
+		    </button>
+		    <button type="button" class="btn-cancel" onclick="closeForm()">Voltar</button>
+		    <img src="ssl.png">
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		// Abrindo o PopUp
+	    function openForm() {
+	      fundoEscuro ();
+	      document.getElementById("form").style.display = "block";
+	    }
+
+	    function closeForm() {
+	      fundoClaro ();
+	      document.getElementById("form").style.display = "none";
+	    }
+
+	    // Deixando o fundo escuro ao aparecer o form
+	    var heading = document.getElementById('form');
+	    function fundoEscuro () {
+	      heading.classList.add('dim');
+	    };
+
+	    function fundoClaro (){
+	      heading.classList.remove('dim');
+	    };
+    </script>
+</body>
+</html>
